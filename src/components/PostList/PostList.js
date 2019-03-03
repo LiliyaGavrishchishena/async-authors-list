@@ -4,7 +4,7 @@ import Post from '../Post/Post';
 import s from './PostList.module.css';
 
 const PostList = ({ posts, deletePost }) =>
-  posts.length > 0 ? (
+  console.log(posts) || posts.length > 0 ? (
     <ul className={s.list}>
       {posts.map(post => (
         <li key={post.id} className={s.item}>

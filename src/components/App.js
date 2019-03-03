@@ -4,11 +4,14 @@ import { connect } from 'react-redux';
 import AuthorList from './AuthorList/AuthorListContainer';
 import PostList from './PostList/PostListContainer';
 
+import { postsOperations } from '../redux';
+
 import s from './App.module.css';
 
 class App extends Component {
   componentDidMount() {
-    console.log('componentDidMount');
+    const { fetchPosts } = this.props;
+    fetchPosts();
   }
 
   render() {
@@ -26,7 +29,11 @@ class App extends Component {
   }
 }
 
+const mapDispatchToProps = {
+  fetchPosts: postsOperations.fetchPosts,
+};
+
 export default connect(
   null,
-  null,
+  mapDispatchToProps,
 )(App);

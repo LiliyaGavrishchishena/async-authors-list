@@ -1,13 +1,14 @@
 import { connect } from 'react-redux';
 
 import PostList from './PostList';
+import { postsSelectors, postsOperations } from '../../redux';
 
-const mapStateToProps = () => ({
-  posts: [],
+const mapStateToProps = state => ({
+  posts: postsSelectors.selectedAuthorPost(state),
 });
 
 const mapDispatchToProps = {
-  deletePost: () => null,
+  deletePost: postsOperations.deletePost,
 };
 
 export default connect(

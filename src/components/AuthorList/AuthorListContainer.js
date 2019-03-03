@@ -1,14 +1,15 @@
 import { connect } from 'react-redux';
 
+import { postsSelectors, postsActions } from '../../redux';
 import AuthorList from './AuthorList';
 
-const mapStateToProps = () => ({
-  authors: [],
+const mapStateToProps = state => ({
+  authors: postsSelectors.getAllAuthors(state),
   activeAuthorId: null,
 });
 
 const mapDispatchToProps = {
-  selectAuthor: () => null,
+  selectAuthor: postsActions.selectAuthor,
 };
 
 export default connect(
