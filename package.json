@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "concurrently": "^5.1.0",
     "faker": "^4.1.0",
     "normalizr": "^3.3.0",
     "react": "^16.7.0",
@@ -23,7 +24,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.js",
     "format": "eslint src/**/*.js --fix",
-    "server": "json-server --watch server/db.json --port 3001"
+    "server": "json-server --watch server/db.json --port 3001",
+    "dev": "concurrently \"yarn server\" \"yarn start\""
   },
   "eslintConfig": {
     "extends": "react-app"
